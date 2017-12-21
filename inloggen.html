@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Whac a Multec</title>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/script.js"></script>
+
+</head>
+
+
+
+<body>
+  <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+  <header id="intro">
+    <h1 class="logo animated fadeInDown"> CATCH
+      <img src="image/vleermuis.gif" width="10%" height="Auto"> GHOST
+    </h1>
+    <nav class="animated fadeInUp">
+      <div class="box">
+
+        <div class="welcomelogo">
+
+        </div>
+
+        <div class="lag">
+          <form name="login">
+            <div fill>
+        
+        <div class='form-row'>
+          <label for='full-name'>Name</label>
+          <input id='full-name' name='full-name' type='text' placeholder='Multec' />
+        </div>
+        <div class='form-row'>
+          <label for='email'>Email</label>
+          <input id='email' name='email' type='email' placeholder='multec@example.com' />
+        </div>
+        </div>
+        <a href="#" id="start" type="button" onclick="check(this.form)">Start catching</a>
+
+            
+
+          </form>
+    
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  
+  
+  <article class="gameover hide">
+    <header>
+      <h1>GAME OVER</h1>
+      <h2>Your score</h2>
+      <h3 id="score">23</h3>
+    </header>
+    <section>
+      <ul>
+        <li><span class="pos">1</span>
+          <p>Steven</p><span class="score">2340094</span></li>
+      </ul>
+      <footer>
+        <form method="post">
+          <input type="text" id="name" name="name" placeholder="Your name">
+          <input type="submit" id="btn_submit" name="btn_submit" value="submit">
+        </form>
+        <nav>
+          <a href="" class="restart">Restart</a>
+        </nav>
+      </footer>
+    </section>
+  </article>
+
+</body>
