@@ -1,7 +1,7 @@
 $(document).ready(){
     
     //start
-    $("Start").click(function(){
+    $("Start").click(function(){ //Voor naam en email in de database te plaatsen
         $.ajax({
             method: "POST",
             url: '//dt5.ehb.be:3306/IP1718007',
@@ -14,7 +14,7 @@ $(document).ready(){
         })
     })
     
-   function updateDatabase() {
+   function updateDatabase() { //Voor score bord
 
         resetAfspraakDetails();
         $.ajax({
