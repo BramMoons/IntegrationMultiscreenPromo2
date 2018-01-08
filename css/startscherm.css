@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'daisyRoots';
+  src: url('../font/roots.otf') format('truetype');
+}
+
+body {background-image: url(../image/AchtergrondStartscherm.png);
+background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+.naam{margin-left: 35%;
+margin-top: 22%;
+color: white;
+font-size: 2em;}
+
+.email{margin-left: 35%;
+margin-top: 7%;
+color: white;
+font-size: 2em;}
+
+input[type=text]{Width: 40%;
+padding-top: 1%;
+ padding-bottom: 1%;
+border:   3px solid white;
+    background-color: black;
+    color: white;
+}
+input[type=submit]{
+    font-size: 2em;
+    margin-left: 60%;
+    margin-top: 1.5%;
+    color: white;
+  border:   3px solid white;
+    background-color: black; 
+    padding: 7px 14px;
+          font-family: 'daisyRoots';
+}
+
+button{
+  font-size: 2em;
+    margin-left: 40%;
+    color: white;
+  border:   3px solid white;
+    background-color: black; 
+    padding: 7px 14px;  
+    position: absolute;
+        margin-top: 1.5%;
+
+      font-family: 'daisyRoots';
+
+}
+
+.label{width: 12%;
+display: inline-block;
+  font-family: 'daisyRoots';
+}
+
+
