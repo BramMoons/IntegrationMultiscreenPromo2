@@ -9,11 +9,11 @@ var vleermuis = new Image();
 var bigfoot = new Image();
 var spin = new Image();
 var zombieSpook = new Image();
-backgroundIpad.src = 'image/spelAchtergrondIpad.png';
-vleermuis.src = 'image/vleermuis.png';
-bigfoot.src = 'image/bigFoot.png';
-spin.src = 'image/spin.png';
-zombieSpook.src = 'image/zombieSpookDing.png';
+backgroundIpad.src = '../image/achtergrondIpad.png';
+vleermuis.src = '../image/vleermuis.png';
+bigfoot.src = '../image/bigFoot.png';
+spin.src = '../image/spin.png';
+zombieSpook.src = '../image/zombieSpook.png';
 
 window.addEventListener("load", eventWindowLoaded);
 
