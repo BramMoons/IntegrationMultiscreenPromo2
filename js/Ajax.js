@@ -1,37 +1,48 @@
-$(document).ready(){
+$(document).ready(function(){
     
     //start
-    $("#Start").click(function(){ //Voor naam en email in de database te plaatsen
-        $.ajax({
-            method: "POST",
-            url: '//dt5.ehb.be:3306/IP1718007',
-            datatype: 'json',
-            data: JSON.stringify(maakJsonVanInlogGegevens()),
-            contentType: "application/json: charset=utf-8",
-        })
+    $("#Start").click(function(){
+        
     })
     
-    function scorebord(){
+    function scorebordOphalen(){
+        //Er wordt aan de webservice gevraagd om alle data uit de database te halen
         $.ajax({
             method: "GET",
-            url : '//dt5.ehb.be:3306/IP1718007/Persoon/getAll',
+            url : '//10.3.51.16/Persoon/getAll',
             dataType: 'json',
             success: function(data, status){
                 $.each(data, function(huidigeIndex, huidigeScore){
-                    $('#lstGegevens').append($'<div>', { text: huidigeScore.Naam, huidigeScore.Score})
-                })
+                    $('#lstGegevens').append($("<div>"), { text: huidigeScore.naam, text: huidigeScore.email})
+                })            
+            },
+            error: function(status){
+                alert("Er is iets fout gegaan bij het ophalen van de gegevens.")
             }
-            
-        })
+        });
     }
     
-     function maakJsonVanInlogGegevens() {
+    function persoonToevoegen(){
+        //Json data wordt doorgestuurd naar de webservice om zo in de database terecht te komen
+        $.ajax({
+            method: "POST",
+            url: '//10.3.51.16/Persoon/voegToe',
+            datatype: 'json',
+            data: JSON.stringify(maakJsonVanInlogGegevens()),
+            contentType: "application/json: charset=utf-8",
+            error: function(status){
+                alert("Er is iets fout gegaan bij het sturen van de gegevens.")
+            }
+        });   
+    }
+    
+    function maakJsonVanInlogGegevens() {
+        //Gegevens ingegeven door gebruiker worden omgezet naar json data om naar de database te kunnen sturen
         var $nieuweAfspraak = {
-            naam: $("#txtFullNaam").val(),
-            email: $("#txtEmail").val(),
+            naam: $("#full-name").val(),
+            email: $("#email").val(),
+            score: $("#score").val(),
         };
         return $nieuweAfspraak;
     }
-    
-    
-}
+});
