@@ -4,11 +4,14 @@ $(document).ready(function () {
   randomMonster();
 
   $("#monster").click(function () {
+
     var x = Math.floor((Math.random() * 80) + 1) + "%";
     var y = Math.floor((Math.random() * 80) + 1) + "%";
+
     $("#monster").css({
-      "margin-top": x,
-      "margin-left": y
+      "margin-top": y,
+      "margin-left": x
+
     });
     punten = punten + 1;
     $("#toonPunten").text(punten);
@@ -23,8 +26,9 @@ function randomMonster() {
   var x = Math.floor((Math.random() * 80) + 1) + "%";
   var y = Math.floor((Math.random() * 80) + 1) + "%";
 
+
   $("#monster").css({
-    "margin-top": x,
-    "margin-left": y
+    "margin-top": y,
+    "margin-left": x
   });
 }
