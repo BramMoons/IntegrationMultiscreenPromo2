@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  background-image: url("/images/spelAchtergrondScherm.png");
+  background-color: darkseagreen;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+img {
+  width: 12%;
+  position: fixed;
+}
+
+p {
+  color: white;
+}
