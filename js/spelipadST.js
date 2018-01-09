@@ -34,7 +34,7 @@ function initCanvas() {
   canvas.height = window.innerHeight;
 
   //functie om fullscreen te gaan.
-  canvas.addEventListener("click", fullscreen);
+//  canvas.addEventListener("click", fullscreen);
 
   //Start the application
   startTheApp();
@@ -106,5 +106,6 @@ function convertCanvasToImage() {
 
   var image_src = canvas.toDataURL("image/png");
   window.open(image_src);
-
 }
+
+
