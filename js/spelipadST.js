@@ -51,14 +51,10 @@ function startTheApp() {
   canvasMiddenY = window.innerHeight / 2;
 
   //achtergrond plaatsen.
+  context.drawImage(backgroundIpad, 0, 0, canvasBreedte, canvasHoogte);
 
-  //context.drawImage(backgroundIpad,0,0, canvasBreedte, canvasHoogte);
+  
 
-  //monsters plaatsen.
-  context.drawImage(vleermuis, canvasMiddenX + 90, 20, 120, 70);
-  context.drawImage(spin, canvasMiddenX - 220, 20, 140, 90);
-  context.drawImage(bigfoot, canvasMiddenX - 410, 20, 70, 90);
-  context.drawImage(zombieSpook, canvasMiddenX + 340, 20, 70, 100);
 }
 
 function fullscreen() {
@@ -75,4 +71,40 @@ function fullscreen() {
 function isCanvasSupported() {
   var elem = document.createElement('canvas');
   return !!(elem.getContext && elem.getContext('2d'));
+}
+
+
+
+function allowDrop(e) {
+  e.preventDefault();
+}
+
+function drag(e) {
+  //store the position of the mouse relativly to the image position
+  e.dataTransfer.setData("mouse_position_x", e.clientX - e.target.offsetLeft);
+  e.dataTransfer.setData("mouse_position_y", e.clientY - e.target.offsetTop);
+
+  e.dataTransfer.setData("image_id", e.target.id);
+}
+
+function drop(e) {
+  e.preventDefault();
+  var image = document.getElementById(e.dataTransfer.getData("image_id"));
+
+  var mouse_position_x = e.dataTransfer.getData("mouse_position_x");
+  var mouse_position_y = e.dataTransfer.getData("mouse_position_y");
+
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+
+  // the image is drawn on the canvas at the position of the mouse when we lifted the mouse button
+  ctx.drawImage(image, e.clientX - canvas.offsetLeft - mouse_position_x, e.clientY - canvas.offsetTop - mouse_position_y);
+}
+
+function convertCanvasToImage() {
+  var canvas = document.getElementById('canvas');
+
+  var image_src = canvas.toDataURL("image/png");
+  window.open(image_src);
+
 }
