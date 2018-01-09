@@ -4,8 +4,8 @@ $(document).ready(function () {
   randomMonster();
 
   $("#monster").click(function () {
-    var x = Math.floor((Math.random() * 50) + 1) + "%";
-    var y = Math.floor((Math.random() * 85) + 1) + "%";
+    var x = Math.floor((Math.random() * 80) + 1) + "%";
+    var y = Math.floor((Math.random() * 80) + 1) + "%";
     $("#monster").css({
       "margin-top": x,
       "margin-left": y
@@ -20,8 +20,8 @@ function randomMonster() {
 
   $("#spel").html("<img id=monster src='../images/vleermuis.png'>");
 
-  var x = Math.floor((Math.random() * 50) + 1) + "%";
-  var y = Math.floor((Math.random() * 85) + 1) + "%";
+  var x = Math.floor((Math.random() * 80) + 1) + "%";
+  var y = Math.floor((Math.random() * 80) + 1) + "%";
 
   $("#monster").css({
     "margin-top": x,
