@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "/daisyRoots";
+  src: url("../font/DaisyRoots");
+}
+
 body {
   margin: 0;
   background-image: url("/images/spelAchtergrondScherm.png");
@@ -12,5 +17,12 @@ img {
 }
 
 p {
+  font-family: daisyRoots;
+  font-size: 30px;
   color: white;
+  margin: 0;
+}
+
+#spelerStatus {
+  margin: 10px 0 0 10px;
 }

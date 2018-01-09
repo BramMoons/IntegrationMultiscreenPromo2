@@ -16,7 +16,7 @@ $(document).ready(function () {
 
 function randomMonster() {
 
-  $("#spel").html("<img id=monster src='images/vleermuis.png'>");
+  $("#spel").html("<img id=monster src='../images/vleermuis.png'>");
 
   var x = (Math.floor((Math.random() * 50) + 1) + "%");
   var y = (Math.floor((Math.random() * 85) + 1) + "%");
