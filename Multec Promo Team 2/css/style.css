@@ -8,6 +8,9 @@ body {
   background-color: #86C2BE;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#bodySpel {
   background-image: url("../images/spelAchtergrondScherm.png");
 }
 
@@ -72,4 +75,52 @@ li {
 
 li img {
   width: 2%;
+}
+
+
+/*---Index--------------------------------------------------------------------------------------------*/
+
+#bodyIndex {
+  background-image: url("../images/menuSchermAchtergrond.png");
+}
+
+form {
+  width: 40%;
+  align-content: center;
+  float: none;
+  margin-left: 35%;
+  margin-top: 300px;
+}
+
+input[type=text] {
+  Width: 50%;
+  line-height: 30px;
+  border: 0.5px solid white;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  margin: 20px 0% 0 10%;
+}
+
+.email {
+  margin-top: 100px;
+}
+
+input[type=submit] {
+  float: left;
+  line-height: 30px;
+  width: 4%;
+  font-size: 1em;
+  color: white;
+  border: 1px solid white;
+  background-color: black;
+  position: absolute;
+  font-family: 'daisyRoots';
+}
+
+.label {
+  color: white;
+  font-size: 30px;
+  display: inline-block;
+  font-family: 'daisyRoots';
 }
