@@ -17,7 +17,8 @@ $(document).ready(function(){
                 })            
             },
             error: function(status){
-                alert("Er is iets fout gegaan bij het ophalen van de gegevens.")
+                console.log(status);
+                alert("Er is iets fout gegaan bij het ophalen van de gegevens.");
             }
         });
     }
@@ -29,11 +30,12 @@ $(document).ready(function(){
             url: 'http://10.3.51.16:8080/Persoon/voegToe',
             datatype: 'json',
             data: JSON.stringify(maakJsonVanInlogGegevens()),
-            contentType: "application/json: charset=utf-8",
+            contentType: "application/json; charset=utf-8",
             success: function (data, status){
               alert("De data is verzonden");  
             },
             error: function(status){
+                console.log(status);
                 alert("Er is iets fout gegaan bij het sturen van de gegevens.")
             }
         });   
@@ -41,11 +43,11 @@ $(document).ready(function(){
     
     function maakJsonVanInlogGegevens() {
         //Gegevens ingegeven door gebruiker worden omgezet naar json data om naar de database te kunnen sturen
-        var $nieuweAfspraak = {
+        var $nieuwPersoon = {
             naam: $("#naam").val(),
             email: $("#email").val(),
             score: $("#score").val(),
         };
-        return $nieuweAfspraak;
+        return $nieuwPersoon;
     }
 });
