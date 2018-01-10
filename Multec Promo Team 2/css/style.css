@@ -3,11 +3,14 @@
   src: url("../font/DaisyRoots.otf");
 }
 
-#bodySpel {
+body {
   margin: 0;
   background-color: #86C2BE;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#bodySpel {
   background-image: url("../images/spelAchtergrondScherm.png");
 }
 
@@ -78,10 +81,6 @@ li img {
 /*---Index--------------------------------------------------------------------------------------------*/
 
 #bodyIndex {
-  margin: 0;
-  background-color: #86C2BE;
-  background-size: cover;
-  background-repeat: no-repeat;
   background-image: url("../images/menuSchermAchtergrond.png");
 }
 
