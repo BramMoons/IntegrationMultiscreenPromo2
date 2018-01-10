@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'daisyRoots';
-  /*src:  url('../Daisy_Roots.otf')   format('truetype');*/
+  src:  url('../fonts/roots.otf')   format('truetype');
 }
 
 
 
-body {background-image: url(../image/Achtergrond%20IpadStartscherm.png);
+body {background-image: url(../images/Achtergrond%20IpadStartscherm.png);
 background-repeat: no-repeat;
     background-size: 100%;
 }
