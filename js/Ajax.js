@@ -2,14 +2,14 @@ $(document).ready(function(){
     
     //start
     $("#Start").click(function(){
-        
+        persoonToevoegen();
     })
     
     function scorebordOphalen(){
         //Er wordt aan de webservice gevraagd om alle data uit de database te halen
         $.ajax({
             method: "GET",
-            url : '//10.3.51.16/Persoon/getAll',
+            url : 'http://10.3.51.16:8080/Persoon/getAll',
             dataType: 'json',
             success: function(data, status){
                 $.each(data, function(huidigeIndex, huidigeScore){
@@ -17,7 +17,8 @@ $(document).ready(function(){
                 })            
             },
             error: function(status){
-                alert("Er is iets fout gegaan bij het ophalen van de gegevens.")
+                console.log(status);
+                alert("Er is iets fout gegaan bij het ophalen van de gegevens.");
             }
         });
     }
@@ -26,11 +27,15 @@ $(document).ready(function(){
         //Json data wordt doorgestuurd naar de webservice om zo in de database terecht te komen
         $.ajax({
             method: "POST",
-            url: '//10.3.51.16/Persoon/voegToe',
+            url: 'http://10.3.51.16:8080/Persoon/voegToe',
             datatype: 'json',
             data: JSON.stringify(maakJsonVanInlogGegevens()),
-            contentType: "application/json: charset=utf-8",
+            contentType: "application/json; charset=utf-8",
+            success: function (data, status){
+              alert("De data is verzonden");  
+            },
             error: function(status){
+                console.log(status);
                 alert("Er is iets fout gegaan bij het sturen van de gegevens.")
             }
         });   
@@ -38,11 +43,11 @@ $(document).ready(function(){
     
     function maakJsonVanInlogGegevens() {
         //Gegevens ingegeven door gebruiker worden omgezet naar json data om naar de database te kunnen sturen
-        var $nieuweAfspraak = {
-            naam: $("#full-name").val(),
+        var $nieuwPersoon = {
+            naam: $("#naam").val(),
             email: $("#email").val(),
             score: $("#score").val(),
         };
-        return $nieuweAfspraak;
+        return $nieuwPersoon;
     }
 });
