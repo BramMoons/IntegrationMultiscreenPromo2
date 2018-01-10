@@ -21,7 +21,13 @@ $(document).ready(function () {
     if (leven === 0) {
       window.location.href = "../pages/gameOver.html";
     } else if (leven == 4) {
-      $("li").last().remove();
+      $("#1").remove();
+    } else if (leven == 3) {
+      $("#2").remove();
+    } else if (leven == 2) {
+      $("#3").remove();
+    } else if (leven == 1) {
+      $("#4").remove();
     }
   });
 
