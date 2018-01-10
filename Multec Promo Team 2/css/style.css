@@ -84,7 +84,7 @@ li img {
   background-image: url("../images/menuSchermAchtergrond.png");
 }
 
-form {
+#form {
   width: 40%;
   align-content: center;
   float: none;
@@ -128,15 +128,24 @@ input[type=submit] {
 
 /*----------------------------------GAME OVER-----------------------------------*/
 
-#TerugNaarMenu {
-  font-size: 1.4em;
-  margin-left: 30%;
-  margin-top: -10%;
-  width: 15%;
-  height: 8%;
-  color: white;
-  border: 1px solid white;
+button {
+  width: 5%;
   background-color: transparent;
-  position: absolute;
-  font-family: 'daisyRoots';
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  margin: 10px 47.5% 0 47.5%;
+}
+
+a {
+  font-family: daisyRoots;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+#play {
+  width: 10%;
+  margin: 20px 0 0 0;
 }
