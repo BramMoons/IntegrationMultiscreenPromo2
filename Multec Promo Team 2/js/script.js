@@ -16,6 +16,7 @@ $(document).ready(function () {
 
   //Click naast monster ----------------------------------------------------------------
   $("#bodySpel").on("click", function (e) {
+      
     clickedMonster = 0;
     leven = leven - 1;
     if (leven === 0) {
@@ -37,8 +38,8 @@ $(document).ready(function () {
       clickedMonster = 1;
       punt.play();
       var x = Math.floor((Math.random() * 85) + 1) + "%";
-      var y = Math.floor((Math.random() * 50) + 1) + "%";
-
+      var y = Math.floor((Math.random() * 40) + 1) + "%";
+      console.log(x,y);
       //variabelen die een random monster kiest.
       var randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
       //de source van het monster veranderen zodat er altijd een ander monster staat.
