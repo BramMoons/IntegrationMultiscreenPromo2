@@ -1,14 +1,17 @@
 @font-face {
   font-family: "daisyRoots";
-  src: url("../font/DaisyRoots");
+  src: url("../font/DaisyRoots.otf");
 }
 
 body {
   margin: 0;
-  background-image: url("../images/spelAchtergrondScherm.png");
-  background-color: darkseagreen;
+  background-color: #86C2BE;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#bodySpel {
+  background-image: url("../images/spelAchtergrondScherm.png");
 }
 
 img {
@@ -16,7 +19,9 @@ img {
   position: fixed;
 }
 
-p {
+#leven,
+#toonPunten,
+#speler {
   font-family: daisyRoots;
   font-size: 30px;
   color: white;
@@ -25,4 +30,45 @@ p {
 
 #spelerStatus {
   margin: 10px 0 0 10px;
+}
+
+#bodyGameOver {
+  background-image: url("../images/gameOverAchtergrondScherm.png");
+}
+
+h1 {
+  font-family: daisyRoots;
+  color: white;
+  font-size: 75px;
+  text-align: center;
+  margin: 3em 0 0 0;
+}
+
+#multec {
+  font-family: arial;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  margin: 1em 0 0 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+li {
+  float: left;
+  width: 10px;
+  display: inline-block;
+  text-align: center;
+  padding-left: 25px;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+li img {
+  width: 2%;
 }
