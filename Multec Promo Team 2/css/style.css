@@ -1,6 +1,6 @@
 @font-face {
   font-family: "daisyRoots";
-  src: url("../font/DaisyRoots.otf");
+  src: url("../fonts/roots.otf");
 }
 
 body {
@@ -22,7 +22,7 @@ img {
 #leven,
 #toonPunten,
 #speler {
-  font-family: daisyRoots;
+  font-family: "daisyRoots";
   font-size: 30px;
   color: white;
   margin: 0;
@@ -124,3 +124,21 @@ input[type=submit] {
   display: inline-block;
   font-family: 'daisyRoots';
 }
+
+
+/*----------------------------------GAME OVER-----------------------------------*/
+
+
+#TerugNaarMenu{
+    font-size: 1.4em;
+    margin-left: 7%;
+    width: 15%;
+    height: 8%;
+  margin-top: -10%;
+  color: black;
+  border: 3px solid black;
+  background-color: white;
+  position: absolute;
+  font-family: 'daisyRoots';
+}
+
