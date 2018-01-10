@@ -52,7 +52,7 @@ $(document).ready(function () {
       // Er wordt zowel op de body als de image geklikt, waardoor het leven ook naar beneden gaat.
       leven = leven + 1;
       punten = punten + 1;
-      $("#toonPunten").text(punten);
+      $("#toonPunten").text("Score: " + punten);
     });
 });
 
