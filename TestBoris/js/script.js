@@ -1,10 +1,11 @@
 $(document).ready(function () {
   var punten = 0;
   var leven = 5;
+  var punt = document.getElementById('punt');
 
   randomMonster();
 
-  $("body").on("click", function (e) {
+  $("#bodySpel").on("click", function (e) {
     leven = leven - 1;
     $("#leven").text(leven);
     if (leven === 0) {
@@ -12,9 +13,9 @@ $(document).ready(function () {
     }
   });
 
-  $("body").on("click",
-    "#monster",
+  $("#monster").on("click",
     function (e) {
+      punt.play();
       var x = Math.floor((Math.random() * 85) + 1) + "%";
       var y = Math.floor((Math.random() * 50) + 1) + "%";
 
@@ -23,6 +24,7 @@ $(document).ready(function () {
         "margin-left": x
       });
 
+      leven = leven + 1;
       punten = punten + 1;
       $("#toonPunten").text(punten);
     });
