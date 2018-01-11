@@ -22,7 +22,7 @@ $(document).ready(function () {
     $("#speler").html(spelerNaam);
     
 //naam speler weergeven in game over scherm.
-    $("#uitslag").html("Proficiat " + spelerNaam + " je score was " + spelerScore + " ! Wil je ook een spel zoals dit maken? Kom dan Multec studeren!")
+    $("#uitslag").html("Proficiat " + spelerNaam + " je hebt " + spelerScore + " monster verslagen! Wil je ook een spel zoals dit maken? <br> Kom dan Multec studeren!")
     
     
     var punt = document.getElementById('punt');
