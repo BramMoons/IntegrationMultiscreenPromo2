@@ -73,19 +73,24 @@ function eersteMonster() {
 
     $("#monster1").css({
         "margin-top": randomY(),
-        "margin-left": randomX()
+        "margin-left": randomX(),
+        "width": "12%"
     });
     $("#monster2").css({
         "margin-top": randomY(),
-        "margin-left": randomX()
+        "margin-left": randomX(),
+        "width": "6%"
     });
     $("#monster3").css({
         "margin-top": randomY(),
-        "margin-left": randomX()
+        "margin-left": randomX(),
+        "width": "12%"
     });
     $("#monster4").css({
         "margin-top": randomY(),
-        "margin-left": randomX()
+        "margin-left": randomX(),
+        "width": "12%"
+        
     });
 }
 
