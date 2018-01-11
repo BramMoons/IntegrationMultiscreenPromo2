@@ -6,7 +6,7 @@ var zombieSpook = '../images/zombieSpook.png';
 //alle monsters in een array steken.
 var monsters = [vleermuis, bigfoot, spin, zombieSpook];
 
-var spelerNaam = sessionStorage.getItem('userName);
+var spelerNaam = sessionStorage.getItem('userName');
 var punten = 0;
 var leven = 5;
 
