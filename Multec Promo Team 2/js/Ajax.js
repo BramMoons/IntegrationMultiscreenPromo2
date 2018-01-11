@@ -1,15 +1,11 @@
 $(document).ready(function () {
 
     //start
-    $("#play").click(function () {
+    $("#stuurServer").click(function () {
         persoonToevoegen();
 
         //naam aan local storage toevoegen.
-        console.log("geklikt");
-
         var username = $('#naam').val();
-
-        console.log(username);
         localStorage.setItem("userName", username);
 
     })
