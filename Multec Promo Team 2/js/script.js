@@ -1,62 +1,80 @@
+//monster afbeeldingen paths in variabelen steken.
+var vleermuis = '../images/vleermuis.png';
+var bigfoot = '../images/bigFoot.png';
+var spin = '../images/spin.png';
+var zombieSpook = '../images/zombieSpook.png';
+//alle monsters in een array steken.
+var monsters = [vleermuis, bigfoot, spin, zombieSpook];
+
+var punten = 0;
+var leven = 5;
+
+
 $(document).ready(function () {
-  var punten = 0;
-  var leven = 5;
-  var punt = document.getElementById('punt');
-  var clickedMonster;
+    var punt = document.getElementById('punt');
+    var clickedMonster;
 
-  //monster afbeeldingen paths in variabelen steken.
-  var vleermuis = '../images/vleermuis.png';
-  var bigfoot = '../images/bigFoot.png';
-  var spin = '../images/spin.png';
-  var zombieSpook = '../images/zombieSpook.png';
-  //alle monsters in een array steken.
-  var monsters = [vleermuis, bigfoot, spin, zombieSpook];
+    eersteMonster();
 
-  eersteMonster();
+    //Click naast monster ----------------------------------------------------------------
+    $("#bodySpel").on("click", function (e) {
 
-  //Click naast monster ----------------------------------------------------------------
-  $("#bodySpel").on("click", function (e) {
-
-    clickedMonster = 0;
-    leven = leven - 1;
-    if (leven === 0) {
-      window.location.href = "../pages/gameOver.html";
-    } else if (leven == 4) {
-      $("#1").remove();
-    } else if (leven == 3) {
-      $("#2").remove();
-    } else if (leven == 2) {
-      $("#3").remove();
-    } else if (leven == 1) {
-      $("#4").remove();
-    }
-  });
-
-  //Click Monster -----------------------------------------------------------------
-  $("#monster").on("click",
-    function (e) {
-      clickedMonster = 1;
-      punt.play();
-      var x = Math.floor((Math.random() * 85) + 1) + "%";
-      var y = Math.floor((Math.random() * 40) + 1) + "%";
-      console.log(x, y);
-      //variabelen die een random monster kiest.
-      var randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
-      //de source van het monster veranderen zodat er altijd een ander monster staat.
-      $("#monster").attr("src", randomMonster);
-
-      $("#monster").css({
-        "margin-top": y,
-        "margin-left": x
-      });
-
-      // Er wordt zowel op de body als de image geklikt, waardoor het leven ook naar beneden gaat.
-      leven = leven + 1;
-      punten = punten + 1;
-      $("#toonPunten").text("Score: " + punten);
+        clickedMonster = 0;
+        leven = leven - 1;
+        if (leven === 0) {
+            window.location.href = "../pages/gameOver.html";
+        } else if (leven == 4) {
+            $("#1").remove();
+        } else if (leven == 3) {
+            $("#2").remove();
+        } else if (leven == 2) {
+            $("#3").remove();
+        } else if (leven == 1) {
+            $("#4").remove();
+        }
     });
 
+//Click Monster -----------------------------------------------------------------
+    $("#monster1").on("click",
+        function (e) {
+            clicked("#monster1");
+        });
 
+    $("#monster2").on("click",
+        function (e) {
+            clicked("#monster2");
+        });
+
+    $("#monster3").on("click",
+        function (e) {
+            clicked("#monster3");
+        });
+
+    $("#monster4").on("click",
+        function (e) {
+            clicked("#monster4");
+        });
+    
+//rotatie Monsters -----------------------------------------------------------------  
+    
+    var angles = [90, 45, 315, 270, 225, 135];
+    var unit = 215;
+    
+    var animate = function(){
+        
+        $.each($('.monster'), function(idx, val){
+           
+            var rad = angles[idx] * (Math.PI / 180);
+            $(val).css({
+                left: 550 + Math.cos(rad) * unit + 'px',
+                top: unit * (1 - Math.sin(rad))  + 'px'
+            });
+            
+            angles[idx]--;
+        });
+        
+    }
+    var timer = setInterval(animate, 20);
 
 });
 
@@ -64,14 +82,67 @@ $(document).ready(function () {
 
 function eersteMonster() {
 
-  $("#spel").html("<img id=monster src='../images/vleermuis.png'>");
+    $("#spel").append("<img class='monster' id='monster1' src='../images/vleermuis.png'>");
 
-  var x = Math.floor((Math.random() * 85) + 1) + "%";
-  var y = Math.floor((Math.random() * 50) + 1) + "%";
+    $("#spel").append("<img class='monster' id='monster2' src='../images/bigfoot.png'>");
+
+    $("#spel").append("<img class='monster' id='monster3' src='../images/spin.png'>");
+
+    $("#spel").append("<img class='monster' id='monster4' src='../images/zombieSpook.png'>");
 
 
-  $("#monster").css({
-    "margin-top": y,
-    "margin-left": x
-  });
+    //  var x = Math.floor((Math.random() * 85) + 1) + "%";
+    //  var y = Math.floor((Math.random() * 50) + 1) + "%";
+
+
+    $("#monster1").css({
+        "margin-top": randomY(),
+        "margin-left": randomX()
+    });
+    $("#monster2").css({
+        "margin-top": randomY(),
+        "margin-left": randomX()
+    });
+    $("#monster3").css({
+        "margin-top": randomY(),
+        "margin-left": randomX()
+    });
+    $("#monster4").css({
+        "margin-top": randomY(),
+        "margin-left": randomX()
+    });
+}
+
+// random nummer functie -----------------------------------------------------------------
+
+function randomX() {
+    return Math.floor((Math.random() * 85) + 1) + "%";
+}
+
+function randomY() {
+    return Math.floor((Math.random() * 40) + 1) + "%";
+}
+
+
+// random nieuw monster -----------------------------------------------------------------
+
+function clicked(monsterNummer) {
+   
+    punt.play();
+
+    //variabelen die een random monster kiest.
+    var randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
+
+    //de source van het monster veranderen zodat er altijd een ander monster staat.
+    $(monsterNummer).attr("src", randomMonster);
+
+    $(monsterNummer).css({
+        "margin-top": randomY,
+        "margin-left": randomX
+    });
+
+    // Er wordt zowel op de body als de image geklikt, waardoor het leven ook naar beneden gaat.
+    leven = leven + 1;
+    punten = punten + 1;
+    $("#toonPunten").text("Score: " + punten);
 }
