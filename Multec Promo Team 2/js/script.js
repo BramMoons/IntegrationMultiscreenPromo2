@@ -110,12 +110,6 @@ function clicked(monsterNummer) {
    
     punt.play();
 
-    //variabelen die een random monster kiest.
-    var randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
-
-    //de source van het monster veranderen zodat er altijd een ander monster staat.
-    $(monsterNummer).attr("src", randomMonster);
-
     $(monsterNummer).css({
         "margin-top": randomY,
         "margin-left": randomX
@@ -126,15 +120,20 @@ function clicked(monsterNummer) {
     punten = punten + 1;
     $("#toonPunten").text("Score: " + punten);
     console.log(punten);
+    
+    //moeilijkheidsgraad -----------------------------------------------------------------   
+    if(punten == 1){
+        rotatie(10);
+} 
+    if(punten == 2){
+        rotatie(20);
+}
 }
 
-//moeilijkheidsgraad -----------------------------------------------------------------  
-    if(punten >= 10){
-        rotatieTraag();
-    }
+
 
 // rotatie -----------------------------------------------------------------
-function rotatieTraag(){
+function rotatie(snelheid){
 
 var angles = [90, 45, 315, 270, 225, 135];
     var unit = 115;
@@ -145,7 +144,7 @@ var angles = [90, 45, 315, 270, 225, 135];
            
             var rad = angles[idx] * (Math.PI / 180);
             $(val).css({
-                left: 550 + Math.cos(rad) * unit + 'px',
+                left: 250 + Math.cos(rad) * unit + 'px',
                 top: unit * (1 - Math.sin(rad))  + 'px'
             });
             
@@ -153,5 +152,6 @@ var angles = [90, 45, 315, 270, 225, 135];
         });
         
     }
-    var timer = setInterval(animate, 10);
+    var timer = setInterval(animate, snelheid);
 }
+
