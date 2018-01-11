@@ -3,11 +3,10 @@ var vleermuis = '../images/vleermuis.png';
 var bigfoot = '../images/bigFoot.png';
 var spin = '../images/spin.png';
 var zombieSpook = '../images/zombieSpook.png';
-//alle monsters in een array steken.
-var monsters = [vleermuis, bigfoot, spin, zombieSpook];
-//spelernaam uit de local storage halen.
-var spelerNaam = localStorage.getItem('userName');
 
+//spelernaam en score uit de local storage halen.
+var spelerNaam = localStorage.getItem('userName');
+var spelerScore = localStorage.getItem('userScore');
 
 var punten = 0;
 var leven = 5;
@@ -16,10 +15,15 @@ var rotatiesnelheid = 20;
 //rechtmuis klik disabelen. <omdat als je op het tv scherm met 2 vingers tegelijk tikt word het menu gedisplayed.
 document.addEventListener('contextmenu', event => event.preventDefault());
 
+
 $(document).ready(function () {
     
-//naam van speler weergeven
+//naam van speler weergeven in spel.
     $("#speler").html(spelerNaam);
+    
+//naam speler weergeven in game over scherm.
+    $("#uitslag").html("Proficiat " + spelerNaam + " je score was " + spelerScore + " ! Wil je ook een spel zoals dit maken? Kom dan Multec studeren!")
+    
     
     var punt = document.getElementById('punt');
     var clickedMonster;
@@ -32,6 +36,7 @@ $(document).ready(function () {
         clickedMonster = 0;
         leven = leven - 1;
         if (leven === 0) {
+            localStorage.setItem("userScore", punten);
             window.location.href = "../pages/gameOver.html";
         } else if (leven == 4) {
             $("#1").remove();
@@ -173,6 +178,9 @@ function clicked(monsterNummer) {
             break;
         case 40:
             rotatiesnelheid = 320;
+            break;
+        case 45:
+            rotatiesnelheid = 360;
             break;
     }
         
