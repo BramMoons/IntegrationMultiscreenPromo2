@@ -7,147 +7,151 @@ var zombieSpook = '../images/zombieSpook.png';
 var monsters = [vleermuis, bigfoot, spin, zombieSpook];
 
 var spelerNaam = sessionStorage.getItem('userName);
-var punten = 0;
-var leven = 5;
+    var punten = 0;
+    var leven = 5;
 
 
-$(document).ready(function () {
-    var punt = document.getElementById('punt');
-    var clickedMonster;
+    $(document).ready(function () {
+      var punt = document.getElementById('punt');
+      var clickedMonster;
 
-    eersteMonster();
+      eersteMonster();
 
-    //Click naast monster ----------------------------------------------------------------
-    $("#bodySpel").on("click", function (e) {
+      //Click naast monster ----------------------------------------------------------------
+      $("#bodySpel").on("click", function (e) {
 
         clickedMonster = 0;
         leven = leven - 1;
         if (leven === 0) {
-            window.location.href = "../pages/gameOver.html";
+          window.location.href = "../pages/gameOver.html";
         } else if (leven == 4) {
-            $("#1").remove();
+          $("#1").remove();
         } else if (leven == 3) {
-            $("#2").remove();
+          $("#2").remove();
         } else if (leven == 2) {
-            $("#3").remove();
+          $("#3").remove();
         } else if (leven == 1) {
-            $("#4").remove();
+          $("#4").remove();
         }
-    });
+      });
 
-//Click Monster -----------------------------------------------------------------
-    $("#monster1").on("click",
+      //Click Monster -----------------------------------------------------------------
+      $("#monster1").on("click",
         function (e) {
-            clicked("#monster1");
+          clicked("#monster1");
         });
 
-    $("#monster2").on("click",
+      $("#monster2").on("click",
         function (e) {
-            clicked("#monster2");
+          clicked("#monster2");
         });
 
-    $("#monster3").on("click",
+      $("#monster3").on("click",
         function (e) {
-            clicked("#monster3");
+          clicked("#monster3");
         });
 
-    $("#monster4").on("click",
+      $("#monster4").on("click",
         function (e) {
-            clicked("#monster4");
+          clicked("#monster4");
         });
-    
-});
 
-// Monster -----------------------------------------------------------------
-
-function eersteMonster() {
-
-    $("#spel").append("<img class='monster' id='monster1' src='../images/vleermuis.png'>");
-
-    $("#spel").append("<img class='monster' id='monster2' src='../images/bigfoot.png'>");
-
-    $("#spel").append("<img class='monster' id='monster3' src='../images/spin.png'>");
-
-    $("#spel").append("<img class='monster' id='monster4' src='../images/zombieSpook.png'>");
-
-
-    $("#monster1").css({
-        "margin-top": randomY(),
-        "margin-left": randomX()
     });
-    $("#monster2").css({
+
+    // Monster -----------------------------------------------------------------
+
+    function eersteMonster() {
+
+      $("#spel").append("<img class='monster' id='monster1' src='../images/vleermuis.png'>");
+
+      $("#spel").append("<img class='monster' id='monster2' src='../images/bigfoot.png'>");
+
+      $("#spel").append("<img class='monster' id='monster3' src='../images/spin.png'>");
+
+      $("#spel").append("<img class='monster' id='monster4' src='../images/zombieSpook.png'>");
+
+
+      $("#monster1").css({
         "margin-top": randomY(),
-        "margin-left": randomX()
-    });
-    $("#monster3").css({
+        "margin-left": randomX(),
+        "width": "12%"
+      });
+      $("#monster2").css({
         "margin-top": randomY(),
-        "margin-left": randomX()
-    });
-    $("#monster4").css({
+        "margin-left": randomX(),
+        "width": "6%"
+      });
+      $("#monster3").css({
         "margin-top": randomY(),
-        "margin-left": randomX()
-    });
-}
+        "margin-left": randomX(),
+        "width": "12%"
+      });
+      $("#monster4").css({
+        "margin-top": randomY(),
+        "margin-left": randomX(),
+        "width": "5%"
+      });
+    }
 
-// random nummer functie -----------------------------------------------------------------
+    // random nummer functie -----------------------------------------------------------------
 
-function randomX() {
-    return Math.floor((Math.random() * 60) + 1) + "%";
-}
+    function randomX() {
+      return Math.floor((Math.random() * 60) + 1) + "%";
+    }
 
-function randomY() {
-    return Math.floor((Math.random() * 25) + 1) + "%";
-}
+    function randomY() {
+      return Math.floor((Math.random() * 25) + 1) + "%";
+    }
 
 
-// random nieuw monster -----------------------------------------------------------------
+    // random nieuw monster -----------------------------------------------------------------
 
-function clicked(monsterNummer) {
-   
-    punt.play();
+    function clicked(monsterNummer) {
 
-    //variabelen die een random monster kiest.
-    var randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
+      punt.play();
 
-    //de source van het monster veranderen zodat er altijd een ander monster staat.
-    $(monsterNummer).attr("src", randomMonster);
+      //variabelen die een random monster kiest.
+      var randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
 
-    $(monsterNummer).css({
+      //de source van het monster veranderen zodat er altijd een ander monster staat.
+      $(monsterNummer).attr("src", randomMonster);
+
+      $(monsterNummer).css({
         "margin-top": randomY,
         "margin-left": randomX
-    });
+      });
 
-    // Er wordt zowel op de body als de image geklikt, waardoor het leven ook naar beneden gaat.
-    leven = leven + 1;
-    punten = punten + 1;
-    $("#toonPunten").text("Score: " + punten);
-    console.log(punten);
-}
-
-//moeilijkheidsgraad -----------------------------------------------------------------  
-    if(punten >= 10){
-        rotatieTraag();
+      // Er wordt zowel op de body als de image geklikt, waardoor het leven ook naar beneden gaat.
+      leven = leven + 1;
+      punten = punten + 1;
+      $("#toonPunten").text("Score: " + punten);
+      console.log(punten);
     }
 
-// rotatie -----------------------------------------------------------------
-function rotatieTraag(){
+    //moeilijkheidsgraad -----------------------------------------------------------------  
+    if (punten >= 10) {
+      rotatieTraag();
+    }
 
-var angles = [90, 45, 315, 270, 225, 135];
-    var unit = 115;
-    
-    var animate = function(){
-        
-        $.each($('.monster'), function(idx, val){
-           
-            var rad = angles[idx] * (Math.PI / 180);
-            $(val).css({
-                left: 550 + Math.cos(rad) * unit + 'px',
-                top: unit * (1 - Math.sin(rad))  + 'px'
-            });
-            
-            angles[idx]--;
+    // rotatie -----------------------------------------------------------------
+    function rotatieTraag() {
+
+      var angles = [90, 45, 315, 270, 225, 135];
+      var unit = 115;
+
+      var animate = function () {
+
+        $.each($('.monster'), function (idx, val) {
+
+          var rad = angles[idx] * (Math.PI / 180);
+          $(val).css({
+            left: 550 + Math.cos(rad) * unit + 'px',
+            top: unit * (1 - Math.sin(rad)) + 'px'
+          });
+
+          angles[idx]--;
         });
-        
+
+      }
+      var timer = setInterval(animate, 10);
     }
-    var timer = setInterval(animate, 10);
-}
