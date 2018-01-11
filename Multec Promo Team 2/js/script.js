@@ -6,6 +6,7 @@ var zombieSpook = '../images/zombieSpook.png';
 //alle monsters in een array steken.
 var monsters = [vleermuis, bigfoot, spin, zombieSpook];
 
+var spelerNaam = sessionStorage.getItem('idFilm');
 var punten = 0;
 var leven = 5;
 
@@ -55,27 +56,6 @@ $(document).ready(function () {
             clicked("#monster4");
         });
     
-//rotatie Monsters -----------------------------------------------------------------  
-    
-    var angles = [90, 45, 315, 270, 225, 135];
-    var unit = 215;
-    
-    var animate = function(){
-        
-        $.each($('.monster'), function(idx, val){
-           
-            var rad = angles[idx] * (Math.PI / 180);
-            $(val).css({
-                left: 550 + Math.cos(rad) * unit + 'px',
-                top: unit * (1 - Math.sin(rad))  + 'px'
-            });
-            
-            angles[idx]--;
-        });
-        
-    }
-    var timer = setInterval(animate, 20);
-
 });
 
 // Monster -----------------------------------------------------------------
@@ -89,10 +69,6 @@ function eersteMonster() {
     $("#spel").append("<img class='monster' id='monster3' src='../images/spin.png'>");
 
     $("#spel").append("<img class='monster' id='monster4' src='../images/zombieSpook.png'>");
-
-
-    //  var x = Math.floor((Math.random() * 85) + 1) + "%";
-    //  var y = Math.floor((Math.random() * 50) + 1) + "%";
 
 
     $("#monster1").css({
@@ -116,11 +92,11 @@ function eersteMonster() {
 // random nummer functie -----------------------------------------------------------------
 
 function randomX() {
-    return Math.floor((Math.random() * 85) + 1) + "%";
+    return Math.floor((Math.random() * 60) + 1) + "%";
 }
 
 function randomY() {
-    return Math.floor((Math.random() * 40) + 1) + "%";
+    return Math.floor((Math.random() * 25) + 1) + "%";
 }
 
 
@@ -145,4 +121,33 @@ function clicked(monsterNummer) {
     leven = leven + 1;
     punten = punten + 1;
     $("#toonPunten").text("Score: " + punten);
+    console.log(punten);
+}
+
+//moeilijkheidsgraad -----------------------------------------------------------------  
+    if(punten >= 10){
+        rotatieTraag();
+    }
+
+// rotatie -----------------------------------------------------------------
+function rotatieTraag(){
+
+var angles = [90, 45, 315, 270, 225, 135];
+    var unit = 115;
+    
+    var animate = function(){
+        
+        $.each($('.monster'), function(idx, val){
+           
+            var rad = angles[idx] * (Math.PI / 180);
+            $(val).css({
+                left: 550 + Math.cos(rad) * unit + 'px',
+                top: unit * (1 - Math.sin(rad))  + 'px'
+            });
+            
+            angles[idx]--;
+        });
+        
+    }
+    var timer = setInterval(animate, 10);
 }
