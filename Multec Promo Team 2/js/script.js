@@ -13,6 +13,8 @@ var punten = 0;
 var leven = 5;
 var rotatiesnelheid = 0;
 
+//rechtmuis klik disabelen. <omdat als je op het tv scherm met 2 vingers tegelijk tikt word het menu gedisplayed.
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 $(document).ready(function () {
     
@@ -127,25 +129,25 @@ function clicked(monsterNummer) {
     
 //moeilijkheidsgraad -----------------------------------------------------------------   
     switch(punten){
-        case 2:
+        case 0:
             rotatiesnelheid = 20;
             break;
-        case 4: 
+        case 2: 
             rotatiesnelheid = 40;
             break;
-        case 6:
+        case 4:
             rotatiesnelheid = 60;
             break;
-        case 8:
+        case 6:
             rotatiesnelheid = 80;
             break;
-        case 10: 
+        case 8: 
             rotatiesnelheid = 100;
             break;
-        case 12:
+        case 10:
             rotatiesnelheid = 120;
             break;
-        case 14: 
+        case 12: 
             rotatiesnelheid = 140;
             break;
         case 16:
