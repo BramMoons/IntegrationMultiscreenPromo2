@@ -108,7 +108,7 @@ li img {
 input[type=text] {
   Width: 50%;
   line-height: 30px;
-  border: 0.5px solid white;
+  border: 2px solid white;
   background-color: black;
   color: white;
   font-size: 15px;
@@ -117,18 +117,6 @@ input[type=text] {
 
 .email {
   margin-top: 100px;
-}
-
-input[type=submit] {
-  float: left;
-  line-height: 30px;
-  width: 4%;
-  font-size: 1em;
-  color: white;
-  border: 1px solid white;
-  background-color: black;
-  position: absolute;
-  font-family: 'daisyRoots';
 }
 
 .label {
@@ -160,7 +148,10 @@ a {
 }
 
 #play {
-  margin: 20px 0 0 0;
+    margin: 20px 0 0 0;
+    padding: 10px;
+    border-width: 2px;
+    
 }
 
 #play a:hover {

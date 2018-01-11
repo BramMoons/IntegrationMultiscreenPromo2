@@ -5,10 +5,13 @@ var spin = '../images/spin.png';
 var zombieSpook = '../images/zombieSpook.png';
 //alle monsters in een array steken.
 var monsters = [vleermuis, bigfoot, spin, zombieSpook];
-
+//spelernaam uit de local storage halen.
 var spelerNaam = localStorage.getItem('userName');
+
+
 var punten = 0;
 var leven = 5;
+var rotatiesnelheid = 0;
 
 
 $(document).ready(function () {
@@ -21,7 +24,7 @@ $(document).ready(function () {
 
     eersteMonster();
 
-    //Click naast monster ----------------------------------------------------------------
+//Click naast monster ----------------------------------------------------------------
     $("#bodySpel").on("click", function (e) {
 
         clickedMonster = 0;
@@ -60,6 +63,7 @@ $(document).ready(function () {
             clicked("#monster4");
         });
     
+    rotatie(rotatiesnelheid);
 });
 
 // Monster -----------------------------------------------------------------
@@ -115,19 +119,65 @@ function clicked(monsterNummer) {
         "margin-left": randomX
     });
 
-    // Er wordt zowel op de body als de image geklikt, waardoor het leven ook naar beneden gaat.
+// Er wordt zowel op de body als de image geklikt, waardoor het leven ook naar beneden gaat.
     leven = leven + 1;
     punten = punten + 1;
     $("#toonPunten").text("Score: " + punten);
     console.log(punten);
     
-    //moeilijkheidsgraad -----------------------------------------------------------------   
-    if(punten == 1){
-        rotatie(10);
-} 
-    if(punten == 2){
-        rotatie(20);
-}
+//moeilijkheidsgraad -----------------------------------------------------------------   
+    switch(punten){
+        case 2:
+            rotatiesnelheid = 20;
+            break;
+        case 4: 
+            rotatiesnelheid = 40;
+            break;
+        case 6:
+            rotatiesnelheid = 60;
+            break;
+        case 8:
+            rotatiesnelheid = 80;
+            break;
+        case 10: 
+            rotatiesnelheid = 100;
+            break;
+        case 12:
+            rotatiesnelheid = 120;
+            break;
+        case 14: 
+            rotatiesnelheid = 140;
+            break;
+        case 16:
+            rotatiesnelheid = 160;
+            break;
+        case 20:
+            rotatiesnelheid = 180;
+            break;
+        case 25:
+            rotatiesnelheid = 200;
+            break;
+        case 27:
+            rotatiesnelheid = 220;
+            break;
+        case 30: 
+            rotatiesnelheid = 240;
+            break;
+        case 32:
+            rotatiesnelheid = 260;
+            break;
+        case 35: 
+            rotatiesnelheid = 280;
+            break;
+        case 37: 
+            rotatiesnelheid = 300;
+            break;
+        case 40:
+            rotatiesnelheid = 320;
+            break;
+    }
+        
+
 }
 
 
@@ -136,12 +186,12 @@ function clicked(monsterNummer) {
 function rotatie(snelheid){
 
 var angles = [90, 45, 315, 270, 225, 135];
-    var unit = 115;
     
     var animate = function(){
         
         $.each($('.monster'), function(idx, val){
-           
+            
+           var unit = rotatiesnelheid;
             var rad = angles[idx] * (Math.PI / 180);
             $(val).css({
                 left: 250 + Math.cos(rad) * unit + 'px',
@@ -152,6 +202,6 @@ var angles = [90, 45, 315, 270, 225, 135];
         });
         
     }
-    var timer = setInterval(animate, snelheid);
+    var timer = setInterval(animate, 10);
 }
 
