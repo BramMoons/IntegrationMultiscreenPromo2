@@ -3,19 +3,19 @@ var vleermuis = '../images/vleermuis.png';
 var bigfoot = '../images/bigFoot.png';
 var spin = '../images/spin.png';
 var zombieSpook = '../images/zombieSpook.png';
-
 //alle monsters in een array steken.
 var monsters = [vleermuis, bigfoot, spin, zombieSpook];
 
-//spelernaam uit de localstorage halen.
-var spelerNaam = sessionStorage.getItem('userName');
-
-
+var spelerNaam = localStorage.getItem('userName');
 var punten = 0;
 var leven = 5;
 
 
 $(document).ready(function () {
+    
+//naam van speler weergeven
+    $("#speler").html(spelerNaam);
+    
     var punt = document.getElementById('punt');
     var clickedMonster;
 
@@ -23,10 +23,7 @@ $(document).ready(function () {
 
     //Click naast monster ----------------------------------------------------------------
     $("#bodySpel").on("click", function (e) {
-        
-        //naam van speler weergeven
-        $("#speler").html(spelerNaam);
-        
+
         clickedMonster = 0;
         leven = leven - 1;
         if (leven === 0) {
@@ -80,24 +77,19 @@ function eersteMonster() {
 
     $("#monster1").css({
         "margin-top": randomY(),
-        "margin-left": randomX(),
-        "width": "12%"
+        "margin-left": randomX()
     });
     $("#monster2").css({
         "margin-top": randomY(),
-        "margin-left": randomX(),
-        "width": "6%"
+        "margin-left": randomX()
     });
     $("#monster3").css({
         "margin-top": randomY(),
-        "margin-left": randomX(),
-        "width": "12%"
+        "margin-left": randomX()
     });
     $("#monster4").css({
         "margin-top": randomY(),
-        "margin-left": randomX(),
-        "width": "12%"
-        
+        "margin-left": randomX()
     });
 }
 
