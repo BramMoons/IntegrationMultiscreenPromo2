@@ -13,7 +13,7 @@ var punten = 0;
 var leven = 5;
 var rotatiesnelheid = 0;
 
-//rechtmuis klik disabelen voor dit af te zetten.
+//rechtmuis klik disabelen. <omdat als je op het tv scherm met 2 vingers tegelijk tikt word het menu gedisplayed.
 document.addEventListener('contextmenu', event => event.preventDefault());
 
 $(document).ready(function () {
