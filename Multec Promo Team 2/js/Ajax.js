@@ -40,11 +40,11 @@ $(document).ready(function () {
             data: JSON.stringify(maakJsonVanInlogGegevens()),
             contentType: "application/json; charset=utf-8",
             success: function (data, status) {
-                //              alert("De data is verzonden");  
+//                              alert("De data is verzonden");  
             },
             error: function (status) {
                 console.log(status);
-                //                alert("Er is iets fout gegaan bij het sturen van de gegevens.")
+//                                alert("Er is iets fout gegaan bij het sturen van de gegevens.")
             }
         });
     }
