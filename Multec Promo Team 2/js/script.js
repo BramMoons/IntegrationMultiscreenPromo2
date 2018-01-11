@@ -11,7 +11,7 @@ var spelerNaam = localStorage.getItem('userName');
 
 var punten = 0;
 var leven = 5;
-var rotatiesnelheid = 0;
+var rotatiesnelheid = 20;
 
 //rechtmuis klik disabelen. <omdat als je op het tv scherm met 2 vingers tegelijk tikt word het menu gedisplayed.
 document.addEventListener('contextmenu', event => event.preventDefault());
@@ -129,9 +129,6 @@ function clicked(monsterNummer) {
     
 //moeilijkheidsgraad -----------------------------------------------------------------   
     switch(punten){
-        case 0:
-            rotatiesnelheid = 20;
-            break;
         case 2: 
             rotatiesnelheid = 40;
             break;
